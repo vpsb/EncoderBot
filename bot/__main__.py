@@ -123,10 +123,6 @@ async def button(Client, cmd: CallbackQuery):
                     [
                         InlineKeyboardButton("About 📖", callback_data="aboutbot"),
                         InlineKeyboardButton("Developer 👨‍💻", callback_data="aboutdevs")
-                    ],
-                    [
-                        InlineKeyboardButton("Back", callback_data="gotohome"),
-                        InlineKeyboardButton("Close", callback_data="closeMessage"),
                     ]
                 ]
             )
