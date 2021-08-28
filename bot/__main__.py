@@ -26,6 +26,17 @@ video_mimetype = [
   "video/mpeg"
   ]
 
+@app.on_message(filters.user(sudo_users) & filters.incoming & (filters.video | filters.document))
+def encode_video(app, message):
+    if message.document:
+      if not message.document.mime_type in video_mimetype:
+        message.reply_text("Invalid Video Format !\nMake Sure Its a Supported Video File 📯", quote=True)
+        return
+    message.reply_text("<b>Getting Meta.. 📯</b>", quote=True) 
+    data.append(message)
+    if len(data) == 1:
+      add_task(message)
+
 @app.on_message(filters.command("start") & filters.private)
 async def start(Client, cmd: Message):
 
@@ -184,17 +195,5 @@ async def main(Client, message: Message):
                 parse_mode="Markdown",
                 disable_web_page_preview=True
             )
-
-
-@app.on_message(filters.user(sudo_users) & filters.incoming & (filters.video | filters.document))
-def encode_video(app, message):
-    if message.document:
-      if not message.document.mime_type in video_mimetype:
-        message.reply_text("Invalid Video Format !\nMake Sure Its a Supported Video File 📯", quote=True)
-        return
-    message.reply_text("<b>Getting Meta.. 📯</b>", quote=True) 
-    data.append(message)
-    if len(data) == 1:
-      add_task(message)
 
 app.run()
