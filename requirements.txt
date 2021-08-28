@@ -1,0 +1,10 @@
+pyrogram
+TgCrypto
+python-dotenv
+hachoir
+ffmpeg-python
+requests
+motor
+aiofiles
+dnspython
+psutil
