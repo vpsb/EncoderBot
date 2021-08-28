@@ -54,3 +54,4 @@ def add_task(message: Message):
         os.remove(filepath)
     except Exception as e:
       msg.edit(f"```{e}```")
+    on_task_complete()
