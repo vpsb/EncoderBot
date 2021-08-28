@@ -100,7 +100,7 @@ async def button(Client, cmd: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("Source Code",
-                                             url="https://github.com/AbirHasan2005/PyroFilesStoreBot")
+                                             url="https://github.com/xi7ng/EncoderBot")
                     ],
                     [
                         InlineKeyboardButton("About 📖", callback_data="aboutbot")
