@@ -26,17 +26,6 @@ video_mimetype = [
   "video/mpeg"
   ]
 
-@app.on_message(filters.user(sudo_users) & filters.incoming & (filters.video | filters.document))
-def encode_video(app, message):
-    if message.document:
-      if not message.document.mime_type in video_mimetype:
-        message.reply_text("Invalid Video Format !\nMake Sure Its a Supported Video File 📯", quote=True)
-        return
-    message.reply_text("<b>Getting Meta.. 📯</b>", quote=True) 
-    data.append(message)
-    if len(data) == 1:
-      add_task(message)
-
 @app.on_message(filters.command("start") & filters.private)
 async def start(Client, cmd: Message):
 
@@ -75,6 +64,16 @@ async def start(Client, cmd: Message):
         except Exception as err:
             await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
 
+@app.on_message(filters.user(sudo_users) & filters.incoming & (filters.video | filters.document))
+def encode_video(app, message):
+    if message.document:
+      if not message.document.mime_type in video_mimetype:
+        message.reply_text(f"**Invalid Video Format !\nMake Sure Its a Supported Video File**", quote=True)
+        return
+    message.reply_text(f"**Added To Queue**", quote=True) 
+    data.append(message)
+    if len(data) == 1:
+      add_task(message)
 
 @app.on_callback_query()
 async def button(Client, cmd: CallbackQuery):
