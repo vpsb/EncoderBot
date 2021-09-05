@@ -12,40 +12,16 @@ def add_task(message: Message):
     try:
       msg = message.reply_text("<b>Downloading 📯</b>", quote=True)
       filepath = message.download(file_name=download_dir)
-      msg.edit(
-          text=f"**Enoding Your File Please Wait 📯**",
-          parse_mode="Markdown",
-          disable_web_page_preview=True,
-          reply_markup=InlineKeyboardMarkup(
-              [
-                  [
-                      InlineKeyboardButton("About 📖", callback_data="aboutbot"),
-                      InlineKeyboardButton("Developer 👨‍💻", callback_data="aboutdevs")
-                  ]
-              ]
-          )
-      )
+      msg.edit(text=f"**Enoding Your File Please Wait 📯**")
       new_file = encode(filepath)
       if new_file:
-        msg.edit(
-            text=f"**Video Encoded Successfully 📯**",
-            parse_mode="Markdown",
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("About 📖", callback_data="aboutbot"),
-                        InlineKeyboardButton("Developer 👨‍💻", callback_data="aboutdevs")
-                    ]
-                ]
-            )
-        )
+        msg.edit(text=f"**Video Encoded Successfully 📯**")
         duration = get_duration(new_file)
         thumb = requests.get('https://i.imgur.com/fiNdPwL.jpeg', allow_redirects=True)
         open('img.jpeg', 'wb').write(thumb.content)
         msg.edit(f"**Uploading**")
         file_name = ".".join(new_file.split("/")[-1].split(".")[:-1])
-        message.reply_document(new_file,thumb='img.jpeg',caption=f"✦ {file_name}")
+        message.reply_document(new_file,thumb='img.jpeg',caption=f"**✦ {file_name}**")
         os.remove(new_file)
         os.remove('img.jpeg')
         msg.edit(f"**Video Successfully Encoded to x265 📯**")
