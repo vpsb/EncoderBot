@@ -38,7 +38,7 @@ async def start(Client, cmd: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Updates 🔊", url="https://t.me/CatHCbotlogs"),
+                        InlineKeyboardButton("Updates 🔊", url="https://t.me/AsmSafone"),
                     ],
                     [
                         InlineKeyboardButton("About 📖", callback_data="aboutbot"),
@@ -87,8 +87,8 @@ async def button(Client, cmd: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Source Code ",
-                                             url="https://github.com/xi7ng/EncoderBot")
+                        InlineKeyboardButton("Support Group ",
+                                             url="https://t.me/AsmSupport")
                     ],
                     [
                         InlineKeyboardButton("Developer 👨‍💻", callback_data="aboutdevs")
@@ -109,8 +109,8 @@ async def button(Client, cmd: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Source Code",
-                                             url="https://github.com/xi7ng/EncoderBot")
+                        InlineKeyboardButton("Support Group",
+                                             url="https://t.me/AsmSupport")
                     ],
                     [
                         InlineKeyboardButton("About 📖", callback_data="aboutbot")
