@@ -11,5 +11,5 @@ HEVC (x265) Is a Video Codec Like AVC (x264) With More Compression & Better Qual
 Developer is Super Noob. Just Learning from Official Docs.
 """
     HOME_TEXT = """
-**Hi, [{}](tg://user?id={})\nThis is File Encoder Bot Via FFMPEG.You Know What can I do Right?**
+**Hi, [{}](tg://user?id={})\nThis is File Encoder Bot Via FFMPEG. Made by @AmiFutami**
 """
